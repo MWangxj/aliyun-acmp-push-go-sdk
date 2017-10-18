@@ -28,6 +28,5 @@ func (this *PublicParam) ToString() (paramstrp *string, err error) {
 		headstr = ""
 	}
 	headstr += "RegionId=" + *this.RegionId + "&Version=" + *this.Version + "&AccessKeyId=" + *this.AccessKeyId + "&Signature=" + *this.Signature + "&SignatureMethod=" + *this.SignatureMethod + "&Timestamp=" + *this.Timestamp + "&SignatureVersion=" + *this.SignatureVersion + "&SignatureNonce=" + *this.SignatureNonce
-	paramstrp = &headstr
-	return paramstrp, nil
+	return &headstr, nil
 }

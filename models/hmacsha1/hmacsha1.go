@@ -13,6 +13,5 @@ func GetHmacStr(paramstr *string, keystr *string) (hmacstr *string, err error) {
 	}
 	hmac := hmac.New(sha1.New, []byte(*keystr))
 	temp := hex.EncodeToString(hmac.Sum(nil))
-	hmacstr = &temp
-	return hmacstr, nil
+	return &temp, nil
 }

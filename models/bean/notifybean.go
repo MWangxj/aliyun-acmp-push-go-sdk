@@ -31,6 +31,5 @@ func (this *NotifyParam) ToString() (paramstrp *string, err error) {
 		headstr += "ExtParameters=" + string(b) + "&"
 	}
 	headstr += "Action=" + *this.Action + "&AppKey=" + *this.AppKey + "&Target=" + *this.Target + "&TargetValue=" + *this.TargetValue + "&Title=" + *this.Title + "&Body=" + *this.Body
-	paramstrp = &headstr
-	return paramstrp, nil
+	return &headstr, nil
 }
