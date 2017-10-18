@@ -2,6 +2,23 @@ package bean
 
 import "errors"
 
+//type messageActionType int
+//
+//var pushMessageToAndroid="PushMessageToAndroid"
+//var pushMessageToiOS="PushMessageToiOS"
+//
+//var MessgeActionType  = [...]*string{
+//	&pushMessageToAndroid,
+//	&pushMessageToiOS,
+//}
+//
+////type MessgeActionType string
+//
+//const (
+//	PushMessageToAndroid messageActionType=iota
+//	PushMessageToiOS
+//)
+
 type MessageParam struct {
 	Action      *string `json:"action"`
 	AppKey      *string `json:"app_key"`
