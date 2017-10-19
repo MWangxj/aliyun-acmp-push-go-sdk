@@ -3,8 +3,8 @@ package hmacsha1
 import (
 	"crypto/hmac"
 	"crypto/sha1"
-	"encoding/hex"
 	"errors"
+	"encoding/base64"
 )
 
 func GetHmacStr(paramstr *string, keystr *string) (hmacstr *string, err error) {
@@ -12,6 +12,6 @@ func GetHmacStr(paramstr *string, keystr *string) (hmacstr *string, err error) {
 		return nil, errors.New("GetHmacStr parameter pointer shouldn't be nil")
 	}
 	hmac := hmac.New(sha1.New, []byte(*keystr))
-	temp := hex.EncodeToString(hmac.Sum(nil))
+	temp := base64.StdEncoding.EncodeToString(hmac.Sum(nil))
 	return &temp, nil
 }

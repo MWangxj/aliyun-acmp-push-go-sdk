@@ -27,12 +27,18 @@ func SignatureString(httprequrl *string,httpmethord *string) (signstr *string,er
 		i++
 	}
 	sort.Strings(keys)
-	querystr:=""
+	querystr:=url.QueryEscape("/")
 	for _,v:=range keys {
-		querystr+="&"+v+"="+uParam[v][0]
+		for i,_:=range uParam[v] {
+			querystr+="&"+v+url.QueryEscape("="+uParam[v][i])
+		}
+
 	}
-	querystr=querystr[1:]
-	temp:=url.QueryEscape(querystr)
+	//fmt.Println(querystr)
+	//fmt.Println(url.QueryEscape("/"))
+	//fmt.Println(url.QueryEscape("&"))
+	//fmt.Println(url.QueryEscape("%"))
+	temp:=*httpmethord+"&"+querystr
 	return &temp,nil
 }
 
