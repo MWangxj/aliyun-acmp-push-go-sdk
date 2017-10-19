@@ -1,14 +1,13 @@
 package push
 
-
-func PushMessage()  {
+func PushMessage() {
 	pushMessgaeToAndroid()
 	pushMessageToiOS()
 }
 
-func pushMessgaeToAndroid()  {
+func pushMessgaeToAndroid() {
 
 }
-func pushMessageToiOS()  {
+func pushMessageToiOS() {
 
 }

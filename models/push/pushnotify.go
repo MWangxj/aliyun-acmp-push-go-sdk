@@ -1,13 +1,13 @@
 package push
 
-func PushNotify()  {
-	pushNotifyToAndroid()
-	pushNotifyToiOS()
+func PushNotice() {
+	pushNoticeToAndroid()
+	pushNoticeToiOS()
 }
 
-func pushNotifyToAndroid()  {
+func pushNoticeToAndroid() {
 
 }
-func pushNotifyToiOS()  {
+func pushNoticeToiOS() {
 
 }

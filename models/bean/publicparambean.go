@@ -2,9 +2,22 @@ package bean
 
 import "errors"
 
+type formatType string
+
+const (
+	XML formatType = "XML"
+	JSON                = "JSON"
+)
+
+type reginId string
+
+const (
+	HANGZHOU reginId ="cn-hangzhou"
+)
+
 type PublicParam struct {
-	Format           *string `json:"format"`
-	RegionId         *string `json:"region_id"`
+	Format           *formatType `json:"format"`
+	RegionId         *reginId `json:"region_id"`
 	Version          *string `json:"version"`
 	AccessKeyId      *string `json:"access_key_id"`
 	Signature        *string `json:"signature"`
