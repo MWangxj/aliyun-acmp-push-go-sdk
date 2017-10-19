@@ -5,10 +5,18 @@ import (
 	"errors"
 )
 
+type notifyType string
+
+const (
+	PushNoticeToAndroid notifyType="PushNoticeToAndroid"
+	PushNoticeToiOS ="PushNoticeToiOS"
+)
+
+
 type NotifyParam struct {
-	Action        *string            `json:"action"`
+	Action        *notifyType            `json:"action"`
 	AppKey        *string            `json:"app_key"`
-	Target        *string            `json:"target"`
+	Target        *targetType            `json:"target"`
 	TargetValue   *string            `json:"target_value"`
 	Title         *string            `json:"title"`
 	Body          *string            `json:"body"`
@@ -21,6 +29,12 @@ func (this *NotifyParam) ToString() (paramstrp *string, err error) {
 	}
 	if this.Action == nil || this.AppKey == nil || this.Target == nil || this.TargetValue == nil || this.Title == nil || this.Body == nil {
 		return nil, errors.New("NotifyParam some perpoties shouldn't be nil")
+	}
+	if *this.Action !=PushNoticeToAndroid ||*this.Action!=PushNoticeToiOS {
+		return nil, errors.New("NotifyParam Action should be PushNoticeToAndroid or PushNoticeToiOS")
+	}
+	if *this.Target !=DEVICE ||*this.Target!=ACCOUNT|| *this.Target !=ALIAS ||*this.Target!=TAG||*this.Target!=ALL {
+		return nil, errors.New("NotifyParam Target should be DEVICE, ACCOUNT,ALIAS,TAG,ALL or PushMessageToiOS")
 	}
 	var headstr string
 	if this.ExtParameters != nil {
