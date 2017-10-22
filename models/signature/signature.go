@@ -44,9 +44,6 @@ func GetSignature(urlencodestr *string,accesssecret *string) (signstr *string,er
 	return signstr,nil
 }
 
-// 一般支持 URL 编码的库（比如 Java 中的 java.net.URLEncoder）都是按照“application/x-www-form-urlencoded”的MIME类型的规则进行编码的。
-// 实现时可以直接使用这类方式进行编码，
-// 把编码后的字符串中加号（+）替换成%20、星号（*）替换成%2A、%7E 替换回波浪号（~）, 即可得到所需要的编码字符串
 func percentEncode(s string) string {
 	s = url.QueryEscape(s)
 	s = strings.Replace(s, "+", "%20", -1)
@@ -56,7 +53,6 @@ func percentEncode(s string) string {
 	return s
 }
 
-// 把编码后的字符串中加号（+）替换成%20、星号（*）替换成%2A、%7E 替换回波浪号（~）, 即可得到所需要的编码字符串
 func aliyunEncodeOver(s string) string {
 	s = strings.Replace(s, "+", "%20", -1)
 	s = strings.Replace(s, "*", "%2A", -1)
